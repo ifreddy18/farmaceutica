@@ -1,0 +1,17 @@
+RewriteEngine On
+# Productos
+RewriteRule ^productos-veterinarios-en-venezuela/([a-zA-Z0-9_-]+)\/([a-zA-Z0-9_-]+)\.html$ ./index.php?page=producto-detalle&cat=$1&prod=$2 [L,NC]
+RewriteRule ^productos-veterinarios-en-venezuela/([a-zA-Z0-9_-]+)\.html$ ./index.php?page=productos&cat=$1 [NC]
+RewriteRule ^laboratorio-farmaceutico-en-venezuela.html$ ./index.php?page=nosotros [L,NC]
+RewriteRule ^productos-veterinarios-en-venezuela.html$ ./index.php?page=productos [L,NC]
+RewriteRule ^([a-zA-Z0-9_-]+)\.html$ ./index.php?page=$1 [L,NC]
+
+ErrorDocument 400 http://farmaceuticamundial.com
+ErrorDocument 401 http://farmaceuticamundial.com
+ErrorDocument 403 http://farmaceuticamundial.com
+ErrorDocument 404 http://farmaceuticamundial.com
+ErrorDocument 500 http://farmaceuticamundial.com
+RewriteCond %{HTTP_HOST} ^farmuvenca\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.farmuvenca\.com$
+RewriteRule ^/?$ "http\:\/\/farmaceuticamundial\.com" [R=301,L]
+
